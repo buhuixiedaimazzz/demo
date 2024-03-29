@@ -1,0 +1,20 @@
+vscode:
+  extensions:
+    - DotJoshJohnson.xml
+    - vscjava.vscode-java-pack
+    - vscjava.vscode-java-debug
+    - vscjava.vscode-java-dependency
+    - vscjava.vscode-java-test
+    - redhat.java
+
+tasks:
+  - name: java project build with maven
+    before: |
+      code --install-extension redhat.java
+      code --install-extension vscjava.vscode-java-pack
+      code --install-extension DotJoshJohnson.xml
+    init: |
+      mvn install -DskipTests=false
+    command: |
+      mvn compile
+
